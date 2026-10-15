@@ -60,7 +60,7 @@ public final class Esp32ProtocolTester {
             new Esp32ProtocolTester(serialPort).run();
         } catch (Exception exception) {
             System.err.println("TEST FAILED: " + exception.getMessage());
-            System.exitCode = 1;
+            throw new RuntimeException(exception);
         } finally {
             if (serialPort.isOpen()) {
                 serialPort.closePort();
